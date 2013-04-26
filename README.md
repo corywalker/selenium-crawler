@@ -1,7 +1,25 @@
 selenium-crawler
 ================
 
-This project is a work in progress. More documentation will be added once the project stabilizes.
+Have you ever needed to crawl a list of urls that may or may not directly contain the content you so desperately crave? The web is full of links that do not behave for a number of reasons, and here is a list of just some of them:
+
+1. The page is actually a landing page that links to the page you want
+  * Hacker News
+  * Hack-a-day
+  * Reddit
+2. The page content is only made available after closing an ad:
+  * Forbes
+3. The content is behind some sort of login or paywall:
+  * Boston Globe
+4. One must click through some sort of pagination to find the content:
+  * Web forums
+
+You might be asking, why use Selenium when you can use a combination of PhantomJS and BeautifulSoup to extract the needed data? This is a great way to accomplish some of the listed tasks above, but it has a number of limitations:
+
+* Business teams would sometimes rather work with a visual tool rather than writing lines of code.
+* Selenium has most of the code that would be needed already built in.
+
+Depending on Selenium DOES NOT mean that your crawling servers will need to also run a GUI. Selenium can run in a headless environment. Look this up for more information.
 
 Exporting test cases
 ====================
@@ -51,5 +69,6 @@ Parsed ./sites/reddit/reddit_raw.py.
 
 What's next?
 ============
+
 selenium-crawler is still in a very early testing stage. You might not even call it that. I still need to test with a variety of different Selenium test cases to make sure my parsing is robust enough. Before I work on that, however, I plan to write a wrapper that will take a simple link and automatically route it through the right site handler based on the URL.
 
