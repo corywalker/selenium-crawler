@@ -1,0 +1,3 @@
+config = {
+    'match': '(.*)reddit.com(.*)'
+}

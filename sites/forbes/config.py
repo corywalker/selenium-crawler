@@ -1,0 +1,3 @@
+config = {
+    'match': '(.*)forbes.com(.*)'
+}
