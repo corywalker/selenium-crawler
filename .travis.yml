@@ -1,24 +1,18 @@
 language: python
 python:
-  - "2.6"
   - "2.7"
-  - "3.2"
-  - "3.3"
 # so Selenium can run
-before_install:
-  - "export DISPLAY=:99.0"
+before_script:
   - "sh -e /etc/init.d/xvfb start"
-  - "export CHROME=google-chrome-stable_current_amd64.deb"
-  - "wget https://dl.google.com/linux/direct/$CHROME"
-  - "sudo dpkg --install $CHROME || sudo apt-get -f install"
-  - "ls -l /usr/bin/google-chrome"
-  - "google-chrome --version"
+  - "sudo aptitude -y -q install unzip chromium-browser"
   - "mkdir /tmp/bin"
   - "cd /tmp/bin"
   - "wget http://chromium.googlecode.com/files/chromedriver_linux32_16.0.902.0.zip"
   - "unzip chromedriver_linux32_16.0.902.0.zip"
   - "export PATH=/tmp/bin:$PATH"
   - "cd /home/travis/build/cmwslw/selenium-crawler"
+  - "export DISPLAY=:99.0"
+before_install:
   - "python selenium-crawler/makeparsed.py"
 # command to install dependencies
 install: "pip install -r requirements.txt --use-mirrors"
