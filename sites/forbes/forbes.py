@@ -7,7 +7,10 @@ def handle_link(link):
 
     driver.find_element_by_xpath("//div[@class='header']/div[@class='continue']/a").click()
 
-    return {
+    results = {
         'url': driver.current_url,
         'source': driver.page_source
     }
+    driver.quit()
+
+    return results

@@ -31,10 +31,13 @@ def handle_link(link):
     code = ''.join(codelines)
     fout.write(code)
     fout.write('''
-    return {
+    results = {
         'url': driver.current_url,
         'source': driver.page_source
     }
+    driver.quit()
+
+    return results
 ''')
 
 for site in locate_sites():

@@ -1,15 +1,12 @@
 # Global modules
 import os
+# Local modules
+from config import sites_dict
 
 SITES_DIR = './sites'
 def locate_sites():
-    sites = os.listdir(SITES_DIR)
-
     location_list = []
-    for site in sites:
-        # Filter out hidden directories
-        if site.startswith('.'):
-            continue
+    for site, regex in sites_dict.iteritems():
         this_site_dir = os.path.join(SITES_DIR, site)
         # This is only the EXPECTED script name.
         # All scripts should follow this convention.

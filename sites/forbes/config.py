@@ -1,3 +1,0 @@
-config = {
-    'match': '(.*)forbes.com(.*)'
-}
