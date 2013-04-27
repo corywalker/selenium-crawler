@@ -96,10 +96,13 @@ def handle_link(link):
 
     driver.find_element_by_xpath("//div[@class='header']/div[@class='continue']/a").click()
 
-    return {
+    results = {
         'url': driver.current_url,
         'source': driver.page_source
     }
+    driver.quit()
+
+    return results
 ```
 
 So go ahead. Run `python makeparsed.py`. You should see output similar to the
@@ -116,7 +119,5 @@ What's next?
 
 Selenium-crawler is still in a very early testing stage. You might not even call
 it that. I still need to test with a variety of different Selenium test cases to
-make sure my parsing is robust enough. Before I work on that, however, I plan to
-write a wrapper that will take a simple link and automatically route it through
-the right site handler based on the URL.
+make sure my parsing is robust enough.
 
