@@ -8,12 +8,8 @@ python:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq strace
-  - python selenium-crawler/makeparsed.py
+  - "python selenium-crawler/makeparsed.py"
 # command to install dependencies
 install: "pip install -r requirements.txt --use-mirrors"
 # command to run tests
-#script: "python selenium-crawler/run_tests.py"
-script:
-  - "strace -q python selenium-crawler/run_tests.py 2>&1 | grep -v ENOENT"
+script: "python selenium-crawler/run_tests.py"
