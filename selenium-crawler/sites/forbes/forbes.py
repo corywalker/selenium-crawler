@@ -1,7 +1,7 @@
 from selenium import webdriver
 
 def handle_link(link):
-    driver = webdriver.Chrome('/tmp/bin/chromedriver')
+    driver = webdriver.Firefox()
     driver.implicitly_wait(30)
     driver.get(link)
 
