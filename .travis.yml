@@ -4,7 +4,8 @@ python:
 # so Selenium can run
 before_script:
   - "sh -e /etc/init.d/xvfb start"
-  - "sudo aptitude -y -q install unzip chromium-browser"
+  - "sudo apt-get update -qq"
+  - "sudo apt-get install -qq unzip chromium-browser"
   - "mkdir /tmp/bin"
   - "cd /tmp/bin"
   - "wget http://chromium.googlecode.com/files/chromedriver_linux32_16.0.902.0.zip"
