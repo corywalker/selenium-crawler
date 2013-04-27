@@ -13,6 +13,11 @@ before_install:
   - "sudo dpkg --install $CHROME || sudo apt-get -f install"
   - "ls -l /usr/bin/google-chrome"
   - "google-chrome --version"
+  - "mkdir /tmp/bin"
+  - "cd /tmp/bin"
+  - "wget http://chromium.googlecode.com/files/chromedriver_linux32_16.0.902.0.zip"
+  - "unzip chromedriver_linux32_16.0.902.0.zip"
+  - "export PATH=/tmp/bin:$PATH"
   - "python selenium-crawler/makeparsed.py"
 # command to install dependencies
 install: "pip install -r requirements.txt --use-mirrors"
