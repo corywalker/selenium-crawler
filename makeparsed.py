@@ -1,4 +1,7 @@
+# Global modules
 import os
+# Local modules
+from filesystem import locate_sites
 
 def parse_raw_script(name, directory, path):
     f = open(path)
@@ -34,17 +37,6 @@ def handle_link(link):
     }
 ''')
 
-SITES_DIR = './sites'
-sites = os.listdir(SITES_DIR)
-
-for site in sites:
-    # Filter out hidden directories
-    if site.startswith('.'):
-        continue
-    this_site_dir = os.path.join(SITES_DIR, site)
-    # This is only the EXPECTED script name.
-    # All scripts should follow this convention.
-    script_name = site + '_raw.py'
-    script_path = os.path.join(this_site_dir, script_name)
-    parse_raw_script(site, this_site_dir, script_path)
-    print "Parsed %s." % script_path
+for site in locate_sites():
+    parse_raw_script(site['name'], site['site_dir'], site['script_path'])
+    print "Parsed %s." % site['script_path']
