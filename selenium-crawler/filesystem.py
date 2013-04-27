@@ -3,7 +3,8 @@ import os
 # Local modules
 from config import sites_dict
 
-SITES_DIR = './sites'
+THIS_DIR = os.path.dirname(os.path.realpath(__file__))
+SITES_DIR = os.path.join(THIS_DIR, 'sites')
 def locate_sites():
     location_list = []
     for site, regex in sites_dict.items():
