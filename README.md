@@ -84,7 +84,7 @@ self.accept_next_alert = true
 Once you fix the syntax errors, they are useful for writing test suites, but not
 for writing crawlers. Running `python makeparsed.py` takes all these Selenium
 test cases and converts them to Python code usable for crawling. Here is an
-example:
+example that clicks through an annoying Javascript ad on Forbes pages:
 
 ```python
 from selenium import webdriver
