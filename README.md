@@ -1,6 +1,8 @@
 selenium-crawler
 ================
 
+![Badge](https://travis-ci.org/cmwslw/selenium-crawler.png)
+
 Have you ever needed to crawl a list of urls that may or may not directly
 contain the content you so desperately crave? The web is full of links that do
 not behave for a number of reasons, and here is a list of just some of them:
