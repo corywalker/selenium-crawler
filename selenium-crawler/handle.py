@@ -14,7 +14,7 @@ def import_from(module, name):
     return getattr(module, name)
 
 def handle_url(url):
-    for site, regex in sites_dict.iteritems():
+    for site, regex in sites_dict.items():
         if re.match(regex, url):
             handler = import_from('sites.%s.%s' % (site, site), 'handle_link')
             result = handler(url)

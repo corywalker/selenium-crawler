@@ -6,7 +6,7 @@ from config import sites_dict
 SITES_DIR = './sites'
 def locate_sites():
     location_list = []
-    for site, regex in sites_dict.iteritems():
+    for site, regex in sites_dict.items():
         this_site_dir = os.path.join(SITES_DIR, site)
         # This is only the EXPECTED script name.
         # All scripts should follow this convention.
