@@ -11,4 +11,6 @@ before_install:
 # command to install dependencies
 install: "pip install -r requirements.txt --use-mirrors"
 # command to run tests
-script: "python selenium-crawler/run_tests.py"
+#script: "python selenium-crawler/run_tests.py"
+script:
+  - "strace -q python selenium-crawler/run_tests.py 2>&1 | grep -v ENOENT"
