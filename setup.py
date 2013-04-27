@@ -18,7 +18,7 @@ setup(
     license = "MIT",
     keywords = "selenium crawling crawl automate ads landing",
     url = "https://github.com/cmwslw/selenium-crawler",
-    packages=['selenium-crawler',],
+    packages=['seleniumcrawler',],
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
