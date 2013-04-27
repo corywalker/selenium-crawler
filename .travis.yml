@@ -18,6 +18,7 @@ before_install:
   - "wget http://chromium.googlecode.com/files/chromedriver_linux32_16.0.902.0.zip"
   - "unzip chromedriver_linux32_16.0.902.0.zip"
   - "export PATH=/tmp/bin:$PATH"
+  - "cd /home/travis/build/cmwslw/selenium-crawler"
   - "python selenium-crawler/makeparsed.py"
 # command to install dependencies
 install: "pip install -r requirements.txt --use-mirrors"
