@@ -8,6 +8,9 @@ from setuptools import setup
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
+with read('requirements.txt') as f:
+    required = f.splitlines()
+
 setup(
     name = "selenium-crawler",
     version = "0.1.0",
@@ -20,9 +23,7 @@ setup(
     url = "https://github.com/cmwslw/selenium-crawler",
     packages=['seleniumcrawler',],
     long_description=read('README.md'),
-    install_requires=[
-        "selenium == 2.32.0",
-    ],
+    install_requires=required,
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",
