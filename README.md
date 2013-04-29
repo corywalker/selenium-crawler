@@ -28,6 +28,31 @@ accomplish some of the listed tasks above, but it has a number of limitations:
 also run a GUI. Selenium can run in a headless environment. Look this up for
 more information.**
 
+Quickstart
+==========
+
+```
+pip install -e git+https://github.com/cmwslw/selenium-crawler.git#egg=selenium-crawler
+```
+
+```python
+from seleniumcrawler import handle_url
+print handle_url('https://news.ycombinator.com/item?id=5626377')
+```
+
+This will open up a browser window, 'click' on the main link, and load the
+article. It will print the following:
+
+```python
+{
+    'url': 'http://googleblog.blogspot.com/2013/04/google-now-on-your-iphone-and-ipad-with.html',
+    'source': {{HTMLSOURCE}},
+    'handler': 'hnews'
+}
+```
+
+Where {{HTMLSOURCE}} is the actual HTML of the article.
+
 Creating test cases
 ===================
 
