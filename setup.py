@@ -10,16 +10,19 @@ def read(fname):
 
 setup(
     name = "selenium-crawler",
-    version = "0.0.1",
+    version = "0.1.0",
     author = "Cory Walker",
     author_email = "cwalker32@gmail.com",
     description = ("Sometimes sites make crawling hard. Selenium-crawler uses "
                    "Selenium automation to fix that."),
-    license = "MIT",
+    license = "LICENSE.txt",
     keywords = "selenium crawling crawl automate ads landing",
     url = "https://github.com/cmwslw/selenium-crawler",
     packages=['seleniumcrawler',],
     long_description=read('README.md'),
+    install_requires=[
+        "selenium == 2.32.0",
+    ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Topic :: Utilities",

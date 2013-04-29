@@ -1,5 +1,5 @@
-selenium-crawler
-================
+selenium-crawler 0.1.0
+======================
 
 Have you ever needed to crawl a list of urls that may or may not directly
 contain the content you so desperately crave? The web is full of links that do
