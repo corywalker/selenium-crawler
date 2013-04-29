@@ -8,8 +8,8 @@ from setuptools import setup
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
-with read('requirements.txt') as f:
-    required = f.splitlines()
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
 setup(
     name = "selenium-crawler",
