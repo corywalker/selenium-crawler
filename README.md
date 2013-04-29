@@ -25,13 +25,13 @@ accomplish some of the listed tasks above, but it has a number of limitations:
 * Selenium has most of the code that would be needed already built in.
 
 **Depending on Selenium DOES NOT mean that your crawling servers will need to
-also run a GUI. Selenium can run in a headless environment. Look this up for
-more information.**
+also run a GUI. Selenium can run in a headless environment. See below for more
+information.**
 
 Quickstart
 ==========
 
-```
+```bash
 pip install -e git+https://github.com/cmwslw/selenium-crawler.git#egg=selenium-crawler
 ```
 
@@ -51,7 +51,7 @@ article. It will print the following:
 }
 ```
 
-Where {{HTMLSOURCE}} is the actual HTML of the article.
+Where `{{HTMLSOURCE}}` is the actual HTML of the article.
 
 Creating test cases
 ===================
@@ -139,10 +139,31 @@ Parsed ./sites/hnews/hnews_raw.py.
 Parsed ./sites/reddit/reddit_raw.py.
 ```
 
-What's next?
+Don't worry if the paths are different for your installation. Keep in mind that
+`makeparsed.py` only has to be run when site scripts have either been changed
+or added.
+
+Headless configuration
+======================
+
+Running headless means that no actual GUI will be running on a monitor during
+use. Put simply, it means that no browser window will pop up when handling a
+URL. One way to run headless is through the use of xvfb, a tool used to set up
+virtual framebuffers. Run this before using selenium-crawler:
+
+```bash
+sh -e /etc/init.d/xvfb start
+export DISPLAY=:99.0
+```
+
+This is the method that CI systems like Travis-CI and CircleCI recommend. There
+are other methods of running Selenium in a headless environment. Do a quick
+Google search for more information.
+
+Contributing
 ============
 
-Selenium-crawler is still in a very early testing stage. You might not even call
-it that. I still need to test with a variety of different Selenium test cases to
-make sure my parsing is robust enough.
+Contributing is easy. If you write any new site handling scripts, just be sure
+to follow the guide above and write a quick test for it in `test_all.py`. Just
+send in a pull request and I'll get a `CONTRIBUTORS.txt` file going.
 
