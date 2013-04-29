@@ -1,7 +1,7 @@
 # Global modules
 import unittest
 # Local modules
-from handle import handle_url
+from seleniumcrawler.handle import handle_url
 
 class TestHandlers(unittest.TestCase):
 

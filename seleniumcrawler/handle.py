@@ -1,7 +1,7 @@
 # Global modules
 import re
 # Local modules
-from config import sites_dict
+from seleniumcrawler.config import sites_dict
 
 class HandlerError(Exception):
     def __init__(self, value):
@@ -16,7 +16,7 @@ def import_from(module, name):
 def handle_url(url):
     for site, regex in sites_dict.items():
         if re.match(regex, url):
-            handler = import_from('sites.%s.%s' % (site, site), 'handle_link')
+            handler = import_from('seleniumcrawler.sites.%s.%s' % (site, site), 'handle_link')
             result = handler(url)
             result['handler'] = site
             return result

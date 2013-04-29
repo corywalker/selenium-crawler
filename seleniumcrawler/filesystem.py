@@ -1,7 +1,7 @@
 # Global modules
 import os
 # Local modules
-from config import sites_dict
+from seleniumcrawler.config import sites_dict
 
 THIS_DIR = os.path.dirname(os.path.realpath(__file__))
 SITES_DIR = os.path.join(THIS_DIR, 'sites')

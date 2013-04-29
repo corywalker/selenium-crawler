@@ -1,7 +1,7 @@
 # Global modules
 import os
 # Local modules
-from filesystem import locate_sites
+from seleniumcrawler.filesystem import locate_sites
 
 def parse_raw_script(name, directory, path):
     f = open(path)

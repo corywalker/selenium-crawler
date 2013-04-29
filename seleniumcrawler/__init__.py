@@ -1,1 +1,1 @@
-from handle import handle_url
+from seleniumcrawler.handle import handle_url
