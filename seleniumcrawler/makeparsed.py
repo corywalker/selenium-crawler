@@ -1,7 +1,26 @@
 # Global modules
 import os
+# Third party modules
+import pystache
 # Local modules
 from seleniumcrawler.filesystem import locate_sites
+
+template = '''from selenium import webdriver
+
+def handle_link(link):
+    driver = webdriver.Firefox()
+    driver.implicitly_wait(30)
+    driver.get(link)
+
+{{{code}}}
+    results = {
+        'url': driver.current_url,
+        'source': driver.page_source
+    }
+    driver.quit()
+
+    return results
+'''
 
 def parse_raw_script(name, directory, path):
     f = open(path)
@@ -19,26 +38,10 @@ def parse_raw_script(name, directory, path):
             break
 
     fout = open(os.path.join(directory, name + '.py'), 'w')
-    fout.write(
-    '''from selenium import webdriver
-
-def handle_link(link):
-    driver = webdriver.Firefox()
-    driver.implicitly_wait(30)
-    driver.get(link)
-
-''')
     code = ''.join(codelines)
-    fout.write(code)
-    fout.write('''
-    results = {
-        'url': driver.current_url,
-        'source': driver.page_source
-    }
-    driver.quit()
-
-    return results
-''')
+    data = {'code': code}
+    rendered = pystache.render(template, data)
+    fout.write(rendered)
 
 for site in locate_sites():
     parse_raw_script(site['name'], site['site_dir'], site['script_path'])
